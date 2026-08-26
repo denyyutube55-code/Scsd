@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Z'EIR — Women's Outerwear</title>
+<style>
+:root{
+  --bg:#0b0b0d; --bg2:#141417; --panel:#1a1a1e; --panel2:#202024;
+  --gold:#c9a227; --gold-l:#e8c65a; --cream:#f3ede0; --text:#efece5;
+  --muted:#9a968c; --line:#2b2b30; --danger:#c1443c; --ok:#3f8f5f;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  --radius:2px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.5;overflow-x:hidden;}
+img,svg{display:block;max-width:100%;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input,select,textarea{font-family:inherit;background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:var(--radius);width:100%;font-size:14px;outline:none;transition:border-color .2s;}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 32px;}
+.hide{display:none!important;}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:#333;border-radius:4px;}
+
+/* ---------- Loader ---------- */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;}
+#loader span{font-family:var(--serif);font-size:28px;letter-spacing:8px;color:var(--gold);opacity:0;animation:loaderIn 1.4s ease forwards;}
+@keyframes loaderIn{0%{opacity:0;letter-spacing:20px;}100%{opacity:1;letter-spacing:8px;}}
+
+/* ---------- Top bar ---------- */
+.topbar{background:#000;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;height:34px;}
+.topbar select{background:transparent;border:none;color:var(--muted);font-size:12px;padding:2px 4px;width:auto;}
+.topbar select:focus{border:none;}
+.top-links{display:flex;gap:18px;}
+.top-links span{cursor:pointer;transition:color .2s;}
+.top-links span:hover{color:var(--gold-l);}
+
+/* ---------- Header ---------- */
+header.main{position:sticky;top:0;z-index:500;background:rgba(11,11,13,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:82px;}
+.logo{font-family:var(--serif);font-size:26px;letter-spacing:5px;font-weight:700;color:var(--cream);}
+.logo em{color:var(--gold);font-style:normal;}
+.navlinks{display:flex;gap:34px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;}
+.navlinks a{position:relative;padding:4px 0;color:var(--text);opacity:.85;transition:opacity .2s;}
+.navlinks a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.navlinks a:hover{opacity:1;} .navlinks a:hover::after{width:100%;}
+.navicons{display:flex;align-items:center;gap:22px;}
+.icon-btn{position:relative;font-size:19px;opacity:.9;transition:transform .2s,opacity .2s;}
+.icon-btn:hover{opacity:1;transform:translateY(-2px);}
+.badge{position:absolute;top:-8px;right:-10px;background:var(--gold);color:#000;font-size:10px;font-weight:700;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:
+  radial-gradient(ellipse at 75% 30%, rgba(201,162,39,.18), transparent 55%),
+  linear-gradient(180deg,#0b0b0d,#111114 60%,#0b0b0d);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 70% 40%, black 10%, transparent 65%);}
+.hero-content{position:relative;z-index:2;max-width:640px;padding:0 32px;}
+.hero-eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;text-transform:uppercase;margin-bottom:22px;opacity:0;animation:riseIn .9s ease .2s forwards;}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,86px);line-height:1.02;font-weight:700;color:var(--cream);opacity:0;animation:riseIn 1s ease .4s forwards;}
+.hero h1 i{font-style:italic;color:var(--gold);}
+.hero p{margin-top:24px;font-size:16px;color:var(--muted);max-width:440px;opacity:0;animation:riseIn 1s ease .6s forwards;}
+.hero .actions{margin-top:38px;display:flex;gap:18px;opacity:0;animation:riseIn 1s ease .8s forwards;}
+@keyframes riseIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+.btn{padding:15px 34px;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;border-radius:var(--radius);transition:all .25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-gold{background:var(--gold);color:#111;font-weight:600;}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(201,162,39,.5);}
+.btn-outline{border:1px solid var(--line);color:var(--text);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-l);}
+.btn-block{width:100%;justify-content:center;}
+.btn-danger{background:var(--danger);color:#fff;}
+.btn-sm{padding:9px 16px;font-size:11px;}
+.hero-figure{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:340px;height:520px;z-index:1;opacity:0;animation:figIn 1.2s ease .5s forwards;}
+@keyframes figIn{from{opacity:0;transform:translateY(-46%) scale(.92);}to{opacity:1;transform:translateY(-50%) scale(1);}}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.scroll-cue::after{content:'';width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s ease-in-out infinite;}
+@keyframes cue{0%,100%{opacity:.2;}50%{opacity:1;}}
+
+/* ---------- Section headings ---------- */
+.section{padding:100px 0;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;}
+.section-eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:700;color:var(--cream);}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+/* ---------- Filters ---------- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;}
+.chip{border:1px solid var(--line);padding:9px 18px;font-size:12px;letter-spacing:.5px;border-radius:20px;color:var(--muted);transition:all .2s;}
+.chip.active,.chip:hover{border-color:var(--gold);color:var(--gold-l);}
+
+/* ---------- Product grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .4s;position:relative;}
+.card:hover{transform:translateY(-8px);border-color:#3a3a40;box-shadow:0 30px 50px -20px rgba(0,0,0,.6);}
+.card-media{aspect-ratio:3/4;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:64px;background:linear-gradient(135deg,#1c1c20,#0e0e10);}
+.card-media img{width:100%;height:100%;object-fit:cover;}
+.card-media .tag{position:absolute;top:14px;left:14px;background:var(--gold);color:#111;font-size:10px;letter-spacing:1px;padding:4px 10px;border-radius:2px;font-weight:700;text-transform:uppercase;z-index:2;}
+.card-media .qv{position:absolute;bottom:-50px;left:14px;right:14px;transition:bottom .3s ease;z-index:2;}
+.card:hover .qv{bottom:14px;}
+.card-body{padding:20px;}
+.card-cat{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+.card-name{font-family:var(--serif);font-size:19px;margin:8px 0 10px;color:var(--cream);}
+.card-price{display:flex;justify-content:space-between;align-items:center;}
+.price{color:var(--gold-l);font-weight:600;font-size:16px;}
+.price-old{color:var(--muted);text-decoration:line-through;font-size:12px;margin-right:8px;}
+.stars{color:var(--gold);font-size:12px;letter-spacing:1px;}
+
+/* ---------- Product modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:24px;}
+.overlay.open{opacity:1;pointer-events:auto;}
+.modal{background:var(--panel);border:1px solid var(--line);max-width:920px;width:100%;max-height:88vh;overflow:auto;border-radius:3px;transform:scale(.94);transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.overlay.open .modal{transform:scale(1);}
+.modal-close{position:absolute;top:20px;right:24px;font-size:22px;color:var(--muted);z-index:5;}
+.modal-close:hover{color:var(--gold-l);}
+.pd-grid{display:grid;grid-template-columns:1fr 1fr;}
+.pd-media{background:linear-gradient(135deg,#1c1c20,#0f0f11);display:flex;align-items:center;justify-content:center;min-height:420px;}
+.pd-media img{width:100%;height:100%;object-fit:cover;}
+.pd-info{padding:44px;}
+.pd-cat{color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;}
+.pd-name{font-family:var(--serif);font-size:32px;margin:12px 0;color:var(--cream);}
+.pd-price{font-size:24px;color:var(--gold-l);font-weight:600;margin-bottom:18px;}
+.pd-desc{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:24px;}
+.opt-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.opt-row{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+.opt{border:1px solid var(--line);padding:9px 16px;font-size:13px;border-radius:2px;transition:all .2s;}
+.opt.selected,.opt:hover{border-color:var(--gold);color:var(--gold-l);}
+.qty-row{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+.qty-box{display:flex;border:1px solid var(--line);}
+.qty-box button{width:38px;height:38px;font-size:16px;}
+.qty-box span{width:40px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.stock-note{font-size:12px;color:var(--ok);margin-top:12px;}
+.stock-note.out{color:var(--danger);}
+
+/* ---------- Cart drawer ---------- */
+.drawer{position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;background:var(--panel);border-left:1px solid var(--line);z-index:1100;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;}
+.drawer.open{transform:translateX(0);}
+.drawer-mask{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1099;opacity:0;pointer-events:none;transition:opacity .4s;}
+.drawer-mask.open{opacity:1;pointer-events:auto;}
+.drawer-head{padding:26px 26px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.drawer-head h3{font-family:var(--serif);font-size:20px;}
+.drawer-body{flex:1;overflow-y:auto;padding:20px 26px;}
+.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+.cart-item .ci-media{width:64px;height:80px;background:var(--panel2);display:flex;align-items:center;justify-content:center;font-size:28px;border-radius:2px;flex-shrink:0;overflow:hidden;}
+.cart-item .ci-media img{width:100%;height:100%;object-fit:cover;}
+.ci-info{flex:1;}
+.ci-name{font-size:14px;color:var(--cream);margin-bottom:4px;}
+.ci-meta{font-size:11px;color:var(--muted);margin-bottom:8px;}
+.ci-row{display:flex;justify-content:space-between;align-items:center;}
+.ci-qty{display:flex;align-items:center;gap:8px;font-size:12px;}
+.ci-qty button{border:1px solid var(--line);width:22px;height:22px;font-size:12px;}
+.ci-remove{color:var(--muted);font-size:11px;text-decoration:underline;}
+.ci-remove:hover{color:var(--danger);}
+.drawer-foot{padding:22px 26px;border-top:1px solid var(--line);}
+.sum-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px;}
+.sum-total{display:flex;justify-content:space-between;font-size:18px;color:var(--cream);font-weight:600;margin:14px 0 20px;}
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted);}
+.empty-state .em-icon{font-size:44px;margin-bottom:16px;opacity:.5;}
+
+/* ---------- Auth / Account panels ---------- */
+.panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;}
+.panel-overlay.open{opacity:1;pointer-events:auto;}
+.auth-box{background:var(--panel);border:1px solid var(--line);width:420px;max-width:100%;padding:44px;border-radius:3px;transform:translateY(20px);transition:transform .35s;}
+.panel-overlay.open .auth-box{transform:translateY(0);}
+.auth-title{font-family:var(--serif);font-size:26px;margin-bottom:6px;color:var(--cream);}
+.auth-sub{color:var(--muted);font-size:13px;margin-bottom:28px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.auth-switch{margin-top:20px;font-size:13px;color:var(--muted);text-align:center;}
+.auth-switch a{color:var(--gold-l);text-decoration:underline;}
+.auth-error{background:rgba(193,68,60,.12);border:1px solid var(--danger);color:#f0a09b;padding:10px 14px;font-size:12.5px;border-radius:2px;margin-bottom:16px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* ---------- Account dashboard ---------- */
+.dash-wrap{max-width:1100px;margin:0 auto;padding:60px 32px 100px;min-height:70vh;}
+.dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
+.dash-tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:34px;flex-wrap:wrap;}
+.dash-tab{padding:14px 22px;font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid transparent;transition:all .2s;}
+.dash-tab.active{color:var(--gold-l);border-color:var(--gold);}
+.dash-tab:hover{color:var(--text);}
+.order-row{border:1px solid var(--line);padding:20px;margin-bottom:14px;border-radius:2px;transition:border-color .2s;}
+.order-row:hover{border-color:#3a3a40;}
+.order-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
+.order-id{font-family:var(--serif);font-size:16px;color:var(--cream);}
+.status-pill{font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:12px;background:rgba(63,143,95,.15);color:#6fcf8f;border:1px solid rgba(63,143,95,.4);}
+.order-items{font-size:12.5px;color:var(--muted);}
+.card-row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);padding:18px 20px;margin-bottom:12px;border-radius:2px;}
+.card-visual{font-family:monospace;font-size:14px;letter-spacing:2px;}
+.settings-form{max-width:480px;}
+
+/* ---------- Admin ---------- */
+.admin-wrap{max-width:1240px;margin:0 auto;padding:50px 32px 100px;}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:40px;}
+.stat-card{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:2px;}
+.stat-num{font-family:var(--serif);font-size:32px;color:var(--gold-l);}
+.stat-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+.table{width:100%;border-collapse:collapse;font-size:13px;}
+.table th{text-align:left;color:var(--muted);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;padding:12px;border-bottom:1px solid var(--line);}
+.table td{padding:14px 12px;border-bottom:1px solid var(--line);}
+.table tr:hover td{background:var(--panel2);}
+.mini-media{width:34px;height:34px;background:var(--panel2);display:flex;align-items:center;justify-content:center;border-radius:2px;font-size:16px;overflow:hidden;}
+.mini-media img{width:100%;height:100%;object-fit:cover;}
+.icon-action{font-size:14px;padding:5px 8px;border-radius:2px;}
+.icon-action:hover{background:var(--panel2);}
+.image-upload-wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.image-upload-wrap .preview-img{width:80px;height:80px;border-radius:4px;object-fit:cover;border:1px solid var(--line);background:var(--panel2);}
+.image-upload-wrap input[type="file"]{padding:10px;font-size:13px;width:auto;flex:1;min-width:160px;}
+
+/* ---------- Receipt / checkout ---------- */
+.checkout-wrap{max-width:900px;margin:0 auto;padding:60px 32px 100px;}
+.co-steps{display:flex;gap:8px;margin-bottom:44px;}
+.co-step{flex:1;text-align:center;padding-bottom:14px;border-bottom:2px solid var(--line);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.co-step.active{color:var(--gold-l);border-color:var(--gold);}
+.co-step.done{color:var(--ok);border-color:var(--ok);}
+.pay-methods{display:flex;gap:12px;margin-bottom:20px;}
+.pm-opt{flex:1;border:1px solid var(--line);padding:14px;text-align:center;border-radius:2px;font-size:12px;}
+.pm-opt.selected{border-color:var(--gold);color:var(--gold-l);}
+.receipt-card{background:var(--panel);border:1px solid var(--line);max-width:480px;margin:0 auto;padding:40px;text-align:center;border-radius:2px;}
+.receipt-check{width:64px;height:64px;border-radius:50%;background:rgba(63,143,95,.15);border:1px solid var(--ok);display:flex;align-items:center;justify-content:center;font-size:30px;color:#6fcf8f;margin:0 auto 22px;animation:pop .5s ease;}
+@keyframes pop{0%{transform:scale(0);}70%{transform:scale(1.15);}100%{transform:scale(1);}}
+.receipt-detail{text-align:left;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:18px 0;margin:24px 0;}
+.rd-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:var(--muted);}
+.rd-row span:last-child{color:var(--text);}
+
+/* ---------- Toast ---------- */
+#toastWrap{position:fixed;bottom:24px;right:24px;z-index:2000;display:flex;flex-direction:column;gap:10px;}
+.toast{background:var(--panel);border:1px solid var(--gold);color:var(--text);padding:14px 20px;border-radius:2px;font-size:13px;min-width:240px;box-shadow:0 12px 30px rgba(0,0,0,.5);animation:toastIn .3s ease, toastOut .3s ease 2.7s forwards;}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes toastOut{to{opacity:0;transform:translateX(40px);}}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:60px 0 30px;background:#000;margin-top:40px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.foot-logo{font-family:var(--serif);font-size:22px;letter-spacing:4px;color:var(--cream);margin-bottom:14px;}
+.foot-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.foot-col a,.foot-col p{display:block;font-size:13px;color:var(--muted);margin-bottom:10px;}
+.foot-bottom{border-top:1px solid var(--line);padding-top:24px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+/* ---------- Utility / responsive ---------- */
+.section-title-row{display:flex;align-items:center;gap:12px;}
+@media(max-width:980px){
+  .navlinks{display:none;}
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .pd-grid{grid-template-columns:1fr;}
+  .pd-media{min-height:280px;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+  .admin-stats{grid-template-columns:1fr 1fr;}
+  .hero-figure{opacity:.15;}
+}
+@media(max-width:620px){
+  .grid{grid-template-columns:1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .container{padding:0 18px;}
+  .drawer{width:100%;}
+  .foot-grid{grid-template-columns:1fr;}
+  .admin-stats{grid-template-columns:1fr 1fr;}
+  .image-upload-wrap .preview-img{width:60px;height:60px;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><span>Z'EIR</span></div>
+<div id="toastWrap"></div>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="container">
+    <div class="top-links">
+      <span data-i18n="top_ship">Бесплатная доставка от 200$</span>
+    </div>
+    <div class="top-links">
+      <select id="langSelect" onchange="setLang(this.value)"></select>
+      <select id="curSelect" onchange="setCurrency(this.value)"></select>
+      <span onclick="openAdminLogin()" data-i18n="top_admin">Кабинет продавца</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="main">
+  <div class="container nav">
+    <div class="logo" onclick="showView('home')" style="cursor:pointer">Z'EIR</div>
+    <nav class="navlinks">
+      <a onclick="showView('home')" data-i18n="nav_home">Главная</a>
+      <a onclick="showView('catalog')" data-i18n="nav_catalog">Каталог</a>
+      <a href="#about-sec" data-i18n="nav_about">О бренде</a>
+      <a href="#contact-sec" data-i18n="nav_contact">Контакты</a>
+    </nav>
+    <div class="navicons">
+      <span class="icon-btn" onclick="openAccount()" title="Аккаунт">👤</span>
+      <span class="icon-btn" onclick="openCart()" title="Корзина">🛍
+        <span class="badge" id="cartBadge">0</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HOME VIEW ===================== -->
+<div id="view-home">
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">Коллекция Осень / Зима</div>
+      <h1 data-i18n-html="hero_title">Верхняя одежда<br>для <i>уверенных</i> женщин</h1>
+      <p data-i18n="hero_sub">Пальто, куртки, пуховики и косухи ручной посадки. Ограниченные тиражи, доставка по всему миру.</p>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="showView('catalog')" data-i18n="hero_cta">Смотреть коллекцию</button>
+        <button class="btn btn-outline" onclick="document.getElementById('about-sec').scrollIntoView({behavior:'smooth'})" data-i18n="hero_cta2">О бренде</button>
+      </div>
+    </div>
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 300 460" width="100%" height="100%">
+        <defs>
+          <linearGradient id="coatGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#242428"/>
+            <stop offset="100%" stop-color="#0c0c0e"/>
+          </linearGradient>
+        </defs>
+        <path d="M150 20 C 100 20 70 60 65 110 L 40 420 L 100 420 L 115 160 L 120 420 L 180 420 L 185 160 L 200 420 L 260 420 L 235 110 C 230 60 200 20 150 20 Z" fill="url(#coatGrad)" stroke="#c9a227" stroke-width="1.2" opacity="0.9"/>
+        <circle cx="150" cy="0" r="18" fill="none" stroke="#c9a227" stroke-width="1" opacity=".5"/>
+        <line x1="150" y1="40" x2="150" y2="400" stroke="#c9a227" stroke-width="0.6" stroke-dasharray="4 6" opacity=".4"/>
+      </svg>
+    </div>
+    <div class="scroll-cue" data-i18n="scroll_cue">Листайте</div>
+  </section>
+
+  <section class="section container">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-eyebrow" data-i18n="new_eyebrow">Выбор редакции</div>
+        <h2 class="section-title" data-i18n="new_title">Новинки сезона</h2>
+      </div>
+      <div class="filters" id="homeFilters"></div>
+    </div>
+    <div class="grid reveal" id="homeGrid"></div>
+  </section>
+
+  <section class="section" id="about-sec" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="reveal">
+        <div class="section-eyebrow" data-i18n="about_eyebrow">С 2016 года</div>
+        <h2 class="section-title" style="margin-bottom:20px" data-i18n="about_title">Мастерство в каждом стежке</h2>
+        <p style="color:var(--muted);line-height:1.9;font-size:15px" data-i18n="about_text">Z'EIR — независимый дом моды, создающий верхнюю одежду для женщин, которые не боятся выделяться. Мы работаем с итальянской шерстью, исландским пухом и кожей выделки ручной работы, выпуская лимитированные партии, каждая из которых нумеруется.</p>
+        <div style="display:flex;gap:40px;margin-top:34px;">
+          <div><div class="stat-num" style="font-size:28px">9+</div><div class="stat-label" data-i18n="about_stat1">лет опыта</div></div>
+          <div><div class="stat-num" style="font-size:28px">40k+</div><div class="stat-label" data-i18n="about_stat2">довольных клиенток</div></div>
+          <div><div class="stat-num" style="font-size:28px">120</div><div class="stat-label" data-i18n="about_stat3">стран доставки</div></div>
+        </div>
+      </div>
+      <div class="reveal" style="height:420px;background:linear-gradient(135deg,#1c1c20,#0e0e10);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:120px;">🧥</div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CATALOG VIEW ===================== -->
+<div id="view-catalog" class="hide">
+  <div class="container" style="padding:56px 32px 100px;">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="cat_eyebrow">Полная коллекция</div>
+        <h2 class="section-title" data-i18n="nav_catalog">Каталог</h2>
+      </div>
+      <input type="text" id="searchInput" placeholder="Поиск..." data-i18n-ph="search_placeholder" style="max-width:240px" oninput="renderCatalog()">
+    </div>
+    <div class="filters" id="catalogFilters" style="margin-bottom:36px;"></div>
+    <div class="grid" id="catalogGrid"></div>
+  </div>
+</div>
+
+<!-- ===================== CHECKOUT VIEW ===================== -->
+<div id="view-checkout" class="hide">
+  <div class="checkout-wrap">
+    <div class="co-steps">
+      <div class="co-step active" id="step1" data-i18n="co_step1">1. Доставка</div>
+      <div class="co-step" id="step2" data-i18n="co_step2">2. Оплата</div>
+      <div class="co-step" id="step3" data-i18n="co_step3">3. Чек</div>
+    </div>
+
+    <div id="co-shipping">
+      <h2 class="section-title" style="font-size:26px;margin-bottom:24px" data-i18n="co_shipping_title">Данные доставки</h2>
+      <div class="two-col">
+        <div class="field"><label data-i18n="f_name">Имя и фамилия</label><input id="shipName"></div>
+        <div class="field"><label data-i18n="f_phone">Телефон</label><input id="shipPhone"></div>
+      </div>
+      <div class="field"><label data-i18n="f_address">Адрес</label><input id="shipAddress"></div>
+      <div class="two-col">
+        <div class="field"><label data-i18n="f_city">Город</label><input id="shipCity"></div>
+        <div class="field"><label data-i18n="f_zip">Индекс</label><input id="shipZip"></div>
+      </div>
+      <button class="btn btn-gold" style="margin-top:10px" onclick="goToPayment()" data-i18n="co_continue">Продолжить к оплате</button>
+    </div>
+
+    <div id="co-payment" class="hide">
+      <h2 class="section-title" style="font-size:26px;margin-bottom:24px" data-i18n="co_payment_title">Оплата</h2>
+      <div class="pay-methods">
+        <div class="pm-opt selected" data-pm="new" onclick="selectPM('new',this)" data-i18n="pm_new">Новая карта</div>
+        <div class="pm-opt" data-pm="saved" onclick="selectPM('saved',this)" data-i18n="pm_saved">Сохранённая карта</div>
+      </div>
+      <div id="pm-new-block">
+        <div class="field"><label data-i18n="f_cardnum">Номер карты</label><input id="cardNum" maxlength="19" placeholder="0000 0000 0000 0000" oninput="formatCardInput(this)"></div>
+        <div class="two-col">
+          <div class="field"><label data-i18n="f_cardexp">Срок действия</label><input id="cardExp" maxlength="5" placeholder="MM/YY" oninput="formatExpInput(this)"></div>
+          <div class="field"><label data-i18n="f_cardcvv">CVV</label><input id="cardCvv" maxlength="3" placeholder="•••" type="password"></div>
+        </div>
+        <div class="field"><label data-i18n="f_cardholder">Владелец карты</label><input id="cardHolder" placeholder="IVANOVA MARIA"></div>
+        <label style="display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);margin-top:6px;"><input type="checkbox" id="saveCardChk" style="width:auto;"> <span data-i18n="f_savecard">Сохранить карту в профиле</span></label>
+      </div>
+      <div id="pm-saved-block" class="hide"></div>
+      <div id="payError" class="auth-error hide" style="margin-top:16px"></div>
+      <button class="btn btn-gold" style="margin-top:20px" id="payBtn" onclick="processPayment()" data-i18n="co_pay">Оплатить заказ</button>
+    </div>
+
+    <div id="co-receipt" class="hide"></div>
+  </div>
+</div>
+
+<!-- ===================== ACCOUNT VIEW ===================== -->
+<div id="view-account" class="hide">
+  <div class="dash-wrap">
+    <div class="dash-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="acc_eyebrow">Личный кабинет</div>
+        <h2 class="section-title" id="accGreeting" style="font-size:30px"></h2>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="logout()" data-i18n="logout">Выйти</button>
+    </div>
+    <div class="dash-tabs">
+      <div class="dash-tab active" data-tab="orders" onclick="switchAccTab('orders',this)" data-i18n="tab_orders">Мои заказы</div>
+      <div class="dash-tab" data-tab="cards" onclick="switchAccTab('cards',this)" data-i18n="tab_cards">Мои карты</div>
+      <div class="dash-tab" data-tab="settings" onclick="switchAccTab('settings',this)" data-i18n="tab_settings">Настройки</div>
+    </div>
+    <div id="acc-orders"></div>
+    <div id="acc-cards" class="hide"></div>
+    <div id="acc-settings" class="hide"></div>
+  </div>
+</div>
+
+<!-- ===================== ADMIN VIEW ===================== -->
+<div id="view-admin" class="hide">
+  <div class="admin-wrap">
+    <div class="dash-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="adm_eyebrow">Панель продавца</div>
+        <h2 class="section-title" style="font-size:30px" data-i18n="adm_title">Администрирование Z'EIR</h2>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="logout()" data-i18n="logout">Выйти</button>
+    </div>
+    <div class="admin-stats">
+      <div class="stat-card"><div class="stat-num" id="statOrders">0</div><div class="stat-label" data-i18n="adm_stat_orders">Заказов всего</div></div>
+      <div class="stat-card"><div class="stat-num" id="statRevenue">0</div><div class="stat-label" data-i18n="adm_stat_revenue">Выручка</div></div>
+      <div class="stat-card"><div class="stat-num" id="statUsers">0</div><div class="stat-label" data-i18n="adm_stat_users">Клиентов</div></div>
+      <div class="stat-card"><div class="stat-num" id="statProducts">0</div><div class="stat-label" data-i18n="adm_stat_products">Товаров</div></div>
+    </div>
+    <div class="dash-tabs">
+      <div class="dash-tab active" data-tab="products" onclick="switchAdminTab('products',this)" data-i18n="adm_tab_products">Товары</div>
+      <div class="dash-tab" data-tab="inbox" onclick="switchAdminTab('inbox',this)" data-i18n="adm_tab_inbox">Чеки (входящие)</div>
+      <div class="dash-tab" data-tab="users" onclick="switchAdminTab('users',this)" data-i18n="adm_tab_users">Клиенты</div>
+    </div>
+    <div id="adm-products"></div>
+    <div id="adm-inbox" class="hide"></div>
+    <div id="adm-users" class="hide"></div>
+  </div>
+</div>
+
+<!-- ===================== PRODUCT MODAL ===================== -->
+<div class="overlay" id="productOverlay">
+  <div class="modal" style="position:relative">
+    <span class="modal-close" onclick="closeProduct()">✕</span>
+    <div class="pd-grid" id="productModalContent"></div>
+  </div>
+</div>
+
+<!-- ===================== ADMIN PRODUCT EDIT MODAL ===================== -->
+<div class="overlay" id="adminProdOverlay">
+  <div class="modal" style="position:relative;max-width:560px;padding:40px">
+    <span class="modal-close" onclick="closeAdminProdModal()">✕</span>
+    <h3 class="auth-title" id="adminProdModalTitle" data-i18n="adm_add_product">Добавить товар</h3>
+    <div class="field"><label data-i18n="f_pname">Название</label><input id="apName"></div>
+    <div class="two-col">
+      <div class="field"><label data-i18n="f_pprice">Цена, USD</label><input id="apPrice" type="number"></div>
+      <div class="field"><label data-i18n="f_pcat">Категория</label>
+        <select id="apCat">
+          <option value="coat">Пальто</option><option value="leather">Кожаные</option>
+          <option value="puffer">Пуховики</option><option value="bomber">Бомберы</option>
+          <option value="trench">Плащи</option><option value="denim">Джинсовые</option>
+        </select>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field"><label data-i18n="f_pstock">Остаток</label><input id="apStock" type="number"></div>
+      <div class="field"><label>Фото товара</label>
+        <div class="image-upload-wrap">
+          <input type="file" id="apImageFile" accept="image/*" capture="environment" onchange="handleImageUpload(event)">
+          <img id="apImagePreview" class="preview-img" style="display:none;">
+        </div>
+      </div>
+    </div>
+    <div class="field"><label data-i18n="f_pdesc">Описание</label><textarea id="apDesc" rows="3"></textarea></div>
+    <button class="btn btn-gold btn-block" onclick="saveAdminProduct()" data-i18n="save">Сохранить</button>
+  </div>
+</div>
+
+<!-- ===================== CART DRAWER ===================== -->
+<div class="drawer-mask" id="cartMask" onclick="closeCart()"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h3 data-i18n="cart_title">Корзина</h3><span class="modal-close" style="position:static" onclick="closeCart()">✕</span></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</div>
+
+<!-- ===================== AUTH PANEL ===================== -->
+<div class="panel-overlay" id="authOverlay">
+  <div class="auth-box" style="position:relative">
+    <span class="modal-close" onclick="closeAuth()">✕</span>
+    <div id="authLoginBox">
+      <div class="auth-title" data-i18n="login_title">Вход</div>
+      <div class="auth-sub" data-i18n="login_sub">Рады видеть вас снова</div>
+      <div id="loginError" class="auth-error hide"></div>
+      <div class="field"><label>Email</label><input id="loginEmail" type="email"></div>
+      <div class="field"><label data-i18n="f_password">Пароль</label><input id="loginPass" type="password"></div>
+      <button class="btn btn-gold btn-block" onclick="doLogin()" data-i18n="login_btn">Войти</button>
+      <div class="auth-switch"><span data-i18n="no_account">Нет аккаунта?</span> <a onclick="showRegister()" data-i18n="register_link">Зарегистрироваться</a></div>
+    </div>
+    <div id="authRegisterBox" class="hide">
+      <div class="auth-title" data-i18n="register_title">Регистрация</div>
+      <div class="auth-sub" data-i18n="register_sub">Создайте аккаунт Z'EIR</div>
+      <div id="regError" class="auth-error hide"></div>
+      <div class="field"><label data-i18n="f_name">Имя</label><input id="regName"></div>
+      <div class="field"><label>Email</label><input id="regEmail" type="email"></div>
+      <div class="field"><label data-i18n="f_password">Пароль</label><input id="regPass" type="password"></div>
+      <button class="btn btn-gold btn-block" onclick="doRegister()" data-i18n="register_btn">Создать аккаунт</button>
+      <div class="auth-switch"><span data-i18n="have_account">Уже есть аккаунт?</span> <a onclick="showLogin()" data-i18n="login_link">Войти</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ADMIN LOGIN PANEL ===================== -->
+<div class="panel-overlay" id="adminLoginOverlay">
+  <div class="auth-box" style="position:relative">
+    <span class="modal-close" onclick="closeAdminLogin()">✕</span>
+    <div class="auth-title" data-i18n="admin_login_title">Кабинет продавца</div>
+    <div class="auth-sub" data-i18n="admin_login_sub">Доступ только для администратора</div>
+    <div id="adminLoginError" class="auth-error hide"></div>
+    <div class="field"><label>Email</label><input id="adminEmail" type="email"></div>
+    <div class="field"><label data-i18n="f_password">Пароль</label><input id="adminPass" type="password"></div>
+    <button class="btn btn-gold btn-block" onclick="doAdminLogin()" data-i18n="login_btn">Войти</button>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact-sec">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Z'EIR</div>
+        <p data-i18n="foot_desc">Дом моды женской верхней одежды. Пальто, куртки, пуховики — с 2016 года.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot_shop">Магазин</h4>
+        <a onclick="showView('catalog')" data-i18n="nav_catalog">Каталог</a>
+        <a onclick="openCart()" data-i18n="cart_title">Корзина</a>
+        <a onclick="openAccount()" data-i18n="tab_orders">Мои заказы</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot_info">Информация</h4>
+        <a data-i18n="foot_delivery">Доставка и возврат</a>
+        <a data-i18n="foot_privacy">Политика конфиденциальности</a>
+        <a data-i18n="foot_terms">Условия использования</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot_contact">Контакты</h4>
+        <p>hello@zeir.store</p>
+        <p>+994 00 000 00 00</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Z'EIR. <span data-i18n="foot_rights">Все права защищены.</span></span>
+      <span data-i18n="foot_demo">Демонстрационный сайт — оплата имитационная</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   Z'EIR — demo e-commerce single-file app
+   All payments/cards are SIMULATED client-side. No real transactions occur.
+   ========================================================================= */
+
+/* ---------------- i18n ---------------- */
+const LANGS = {
+  ru:{label:'RU · Русский', flag:'🇷🇺'},
+  en:{label:'EN · English', flag:'🇬🇧'},
+  az:{label:'AZ · Azərbaycan', flag:'🇦🇿'},
+  tr:{label:'TR · Türkçe', flag:'🇹🇷'},
+  zh:{label:'ZH · 中文', flag:'🇨🇳'}
+};
+const I18N = {
+  ru:{top_ship:"Бесплатная доставка от 200$",top_admin:"Кабинет продавца",nav_home:"Главная",nav_catalog:"Каталог",nav_about:"О бренде",nav_contact:"Контакты",
+  hero_eyebrow:"Коллекция Осень / Зима",hero_title:"Верхняя одежда<br>для <i>уверенных</i> женщин",hero_sub:"Пальто, куртки, пуховики и косухи ручной посадки. Ограниченные тиражи, доставка по всему миру.",
+  hero_cta:"Смотреть коллекцию",hero_cta2:"О бренде",scroll_cue:"Листайте",new_eyebrow:"Выбор редакции",new_title:"Новинки сезона",
+  about_eyebrow:"С 2016 года",about_title:"Мастерство в каждом стежке",about_text:"Z'EIR — независимый дом моды, создающий верхнюю одежду для женщин, которые не боятся выделяться. Мы работаем с итальянской шерстью, исландским пухом и кожей выделки ручной работы.",
+  about_stat1:"лет опыта",about_stat2:"довольных клиенток",about_stat3:"стран доставки",cat_eyebrow:"Полная коллекция",search_placeholder:"Поиск товара...",
+  cat_all:"Все",cat_coat:"Пальто",cat_leather:"Кожаные",cat_puffer:"Пуховики",cat_bomber:"Бомберы",cat_trench:"Плащи",cat_denim:"Джинсовые",
+  add_to_cart:"В корзину",view_details:"Подробнее",size_label:"Размер",color_label:"Цвет",qty_label:"Количество",in_stock:"В наличии",out_of_stock:"Нет в наличии",
+  cart_title:"Корзина",cart_empty:"Ваша корзина пуста",cart_empty_sub:"Добавьте товары из каталога",subtotal:"Подытог",shipping:"Доставка",total:"Итого",
+  checkout_btn:"Оформить заказ",continue_shopping:"Продолжить покупки",
+  login_title:"Вход",login_sub:"Рады видеть вас снова",login_btn:"Войти",no_account:"Нет аккаунта?",register_link:"Зарегистрироваться",
+  register_title:"Регистрация",register_sub:"Создайте аккаунт Z'EIR",register_btn:"Создать аккаунт",have_account:"Уже есть аккаунт?",login_link:"Войти",
+  f_password:"Пароль",f_name:"Имя и фамилия",f_phone:"Телефон",f_address:"Адрес",f_city:"Город",f_zip:"Индекс",f_cardnum:"Номер карты",f_cardexp:"Срок действия",
+  f_cardcvv:"CVV",f_cardholder:"Владелец карты",f_savecard:"Сохранить карту в профиле",f_pname:"Название",f_pprice:"Цена, USD",f_pcat:"Категория",f_pstock:"Остаток",
+  f_picon:"Эмодзи-иконка",f_pdesc:"Описание",save:"Сохранить",cancel:"Отмена",
+  co_step1:"1. Доставка",co_step2:"2. Оплата",co_step3:"3. Чек",co_shipping_title:"Данные доставки",co_continue:"Продолжить к оплате",co_payment_title:"Оплата",
+  pm_new:"Новая карта",pm_saved:"Сохранённая карта",co_pay:"Оплатить заказ",
+  acc_eyebrow:"Личный кабинет",tab_orders:"Мои заказы",tab_cards:"Мои карты",tab_settings:"Настройки",logout:"Выйти",no_orders:"У вас пока нет заказов",
+  no_cards:"Сохранённых карт нет",add_card:"Добавить карту",
+  adm_eyebrow:"Панель продавца",adm_title:"Администрирование Z'EIR",adm_stat_orders:"Заказов всего",adm_stat_revenue:"Выручка",adm_stat_users:"Клиентов",
+  adm_stat_products:"Товаров",adm_tab_products:"Товары",adm_tab_inbox:"Чеки (входящие)",adm_tab_users:"Клиенты",adm_add_product:"Добавить товар",
+  admin_login_title:"Кабинет продавца",admin_login_sub:"Доступ только для администратора",
+  foot_desc:"Дом моды женской верхней одежды. Пальто, куртки, пуховики — с 2016 года.",foot_shop:"Магазин",foot_info:"Информация",foot_delivery:"Доставка и возврат",
+  foot_privacy:"Политика конфиденциальности",foot_terms:"Условия использования",foot_contact:"Контакты",foot_rights:"Все права защищены.",foot_demo:"Демонстрационный сайт — оплата имитационная",
+  toast_added:"Товар добавлен в корзину",toast_login:"Вы успешно вошли",toast_reg:"Аккаунт создан",toast_logout:"Вы вышли из аккаунта",toast_order:"Заказ оформлен успешно",
+  toast_cardsaved:"Карта сохранена",toast_prod_saved:"Товар сохранён",toast_prod_deleted:"Товар удалён",err_fill:"Заполните все поля",err_login:"Неверный email или пароль",
+  err_exists:"Пользователь с таким email уже существует",err_admin:"Неверные данные администратора",err_card:"Проверьте данные карты",
+  edit:"Изменить",delete:"Удалить",receipt_title:"Заказ оформлен!",receipt_sub:"Копия чека отправлена на вашу почту и администратору",order_num:"Номер заказа",
+  order_date:"Дата",order_total:"Сумма",order_pay:"Способ оплаты",download_receipt:"Скачать чек",print_receipt:"Печать",back_home:"На главную",status_paid:"Оплачен"},
+
+  en:{top_ship:"Free shipping over $200",top_admin:"Seller dashboard",nav_home:"Home",nav_catalog:"Catalog",nav_about:"About",nav_contact:"Contact",
+  hero_eyebrow:"Fall / Winter Collection",hero_title:"Outerwear<br>for <i>fearless</i> women",hero_sub:"Hand-tailored coats, jackets, down coats and leather. Limited runs, worldwide shipping.",
+  hero_cta:"Shop the collection",hero_cta2:"About us",scroll_cue:"Scroll",new_eyebrow:"Editor's pick",new_title:"New this season",
+  about_eyebrow:"Since 2016",about_title:"Craftsmanship in every stitch",about_text:"Z'EIR is an independent fashion house creating outerwear for women unafraid to stand out. We work with Italian wool, Icelandic down and handcrafted leather.",
+  about_stat1:"years of craft",about_stat2:"happy clients",about_stat3:"countries served",cat_eyebrow:"Full collection",search_placeholder:"Search products...",
+  cat_all:"All",cat_coat:"Coats",cat_leather:"Leather",cat_puffer:"Puffers",cat_bomber:"Bombers",cat_trench:"Trenches",cat_denim:"Denim",
+  add_to_cart:"Add to cart",view_details:"View details",size_label:"Size",color_label:"Color",qty_label:"Quantity",in_stock:"In stock",out_of_stock:"Out of stock",
+  cart_title:"Cart",cart_empty:"Your cart is empty",cart_empty_sub:"Add items from the catalog",subtotal:"Subtotal",shipping:"Shipping",total:"Total",
+  checkout_btn:"Checkout",continue_shopping:"Continue shopping",
+  login_title:"Sign in",login_sub:"Welcome back",login_btn:"Sign in",no_account:"No account?",register_link:"Register",
+  register_title:"Register",register_sub:"Create your Z'EIR account",register_btn:"Create account",have_account:"Already have an account?",login_link:"Sign in",
+  f_password:"Password",f_name:"Full name",f_phone:"Phone",f_address:"Address",f_city:"City",f_zip:"ZIP code",f_cardnum:"Card number",f_cardexp:"Expiry",
+  f_cardcvv:"CVV",f_cardholder:"Cardholder name",f_savecard:"Save card to profile",f_pname:"Name",f_pprice:"Price, USD",f_pcat:"Category",f_pstock:"Stock",
+  f_picon:"Emoji icon",f_pdesc:"Description",save:"Save",cancel:"Cancel",
+  co_step1:"1. Shipping",co_step2:"2. Payment",co_step3:"3. Receipt",co_shipping_title:"Shipping details",co_continue:"Continue to payment",co_payment_title:"Payment",
+  pm_new:"New card",pm_saved:"Saved card",co_pay:"Pay for order",
+  acc_eyebrow:"My account",tab_orders:"My orders",tab_cards:"My cards",tab_settings:"Settings",logout:"Log out",no_orders:"You have no orders yet",
+  no_cards:"No saved cards",add_card:"Add card",
+  adm_eyebrow:"Seller panel",adm_title:"Z'EIR administration",adm_stat_orders:"Total orders",adm_stat_revenue:"Revenue",adm_stat_users:"Customers",
+  adm_stat_products:"Products",adm_tab_products:"Products",adm_tab_inbox:"Receipts (inbox)",adm_tab_users:"Customers",adm_add_product:"Add product",
+  admin_login_title:"Seller dashboard",admin_login_sub:"Admin access only",
+  foot_desc:"Fashion house for women's outerwear. Coats, jackets, down coats — since 2016.",foot_shop:"Shop",foot_info:"Information",foot_delivery:"Shipping & returns",
+  foot_privacy:"Privacy policy",foot_terms:"Terms of use",foot_contact:"Contact",foot_rights:"All rights reserved.",foot_demo:"Demo site — payments are simulated",
+  toast_added:"Item added to cart",toast_login:"Signed in successfully",toast_reg:"Account created",toast_logout:"Signed out",toast_order:"Order placed successfully",
+  toast_cardsaved:"Card saved",toast_prod_saved:"Product saved",toast_prod_deleted:"Product deleted",err_fill:"Please fill all fields",err_login:"Invalid email or password",
+  err_exists:"A user with this email already exists",err_admin:"Invalid admin credentials",err_card:"Please check your card details",
+  edit:"Edit",delete:"Delete",receipt_title:"Order placed!",receipt_sub:"A receipt copy was sent to your email and to the admin",order_num:"Order number",
+  order_date:"Date",order_total:"Total",order_pay:"Payment method",download_receipt:"Download receipt",print_receipt:"Print",back_home:"Back home",status_paid:"Paid"},
+
+  az:{top_ship:"200$-dan yuxarı pulsuz çatdırılma",top_admin:"Satıcı paneli",nav_home:"Əsas",nav_catalog:"Kataloq",nav_about:"Marka haqqında",nav_contact:"Əlaqə",
+  hero_eyebrow:"Payız / Qış Kolleksiyası",hero_title:"Qadınlar üçün<br><i>cəsarətli</i> üst geyimlər",hero_sub:"Əl işi paltolar, gödəkçələr, pufflər və dəri geyimlər. Məhdud say, dünya üzrə çatdırılma.",
+  hero_cta:"Kolleksiyaya bax",hero_cta2:"Marka haqqında",scroll_cue:"Sürüşdür",new_eyebrow:"Seçim",new_title:"Mövsümün yenilikləri",
+  about_eyebrow:"2016-dan bəri",about_title:"Hər tikişdə ustalıq",about_text:"Z'EIR — seçilməkdən qorxmayan qadınlar üçün üst geyim yaradan müstəqil moda evidir. İtalyan yunu, İslandiya pufu və əl işi dəri ilə işləyirik.",
+  about_stat1:"il təcrübə",about_stat2:"məmnun müştəri",about_stat3:"ölkəyə çatdırılma",cat_eyebrow:"Tam kolleksiya",search_placeholder:"Məhsul axtar...",
+  cat_all:"Hamısı",cat_coat:"Palto",cat_leather:"Dəri",cat_puffer:"Puflər",cat_bomber:"Bomberlər",cat_trench:"Plaşlar",cat_denim:"Cins",
+  add_to_cart:"Səbətə at",view_details:"Ətraflı",size_label:"Ölçü",color_label:"Rəng",qty_label:"Say",in_stock:"Stokda var",out_of_stock:"Stokda yoxdur",
+  cart_title:"Səbət",cart_empty:"Səbətiniz boşdur",cart_empty_sub:"Kataloqdan məhsul əlavə edin",subtotal:"Aralıq cəm",shipping:"Çatdırılma",total:"Cəmi",
+  checkout_btn:"Sifarişi tamamla",continue_shopping:"Alış-verişə davam et",
+  login_title:"Giriş",login_sub:"Yenidən xoş gəldiniz",login_btn:"Daxil ol",no_account:"Hesabınız yoxdur?",register_link:"Qeydiyyatdan keç",
+  register_title:"Qeydiyyat",register_sub:"Z'EIR hesabı yaradın",register_btn:"Hesab yarat",have_account:"Artıq hesabınız var?",login_link:"Daxil ol",
+  f_password:"Şifrə",f_name:"Ad və soyad",f_phone:"Telefon",f_address:"Ünvan",f_city:"Şəhər",f_zip:"Poçt indeksi",f_cardnum:"Kart nömrəsi",f_cardexp:"Son tarix",
+  f_cardcvv:"CVV",f_cardholder:"Kart sahibi",f_savecard:"Kartı profilə yadda saxla",f_pname:"Ad",f_pprice:"Qiymət, USD",f_pcat:"Kateqoriya",f_pstock:"Qalıq",
+  f_picon:"Emoji ikon",f_pdesc:"Təsvir",save:"Yadda saxla",cancel:"Ləğv et",
+  co_step1:"1. Çatdırılma",co_step2:"2. Ödəniş",co_step3:"3. Qəbz",co_shipping_title:"Çatdırılma məlumatları",co_continue:"Ödənişə keç",co_payment_title:"Ödəniş",
+  pm_new:"Yeni kart",pm_saved:"Yadda saxlanmış kart",co_pay:"Sifarişi ödə",
+  acc_eyebrow:"Şəxsi kabinet",tab_orders:"Sifarişlərim",tab_cards:"Kartlarım",tab_settings:"Ayarlar",logout:"Çıxış",no_orders:"Hələ sifarişiniz yoxdur",
+  no_cards:"Yadda saxlanmış kart yoxdur",add_card:"Kart əlavə et",
+  adm_eyebrow:"Satıcı paneli",adm_title:"Z'EIR idarəetməsi",adm_stat_orders:"Ümumi sifarişlər",adm_stat_revenue:"Gəlir",adm_stat_users:"Müştərilər",
+  adm_stat_products:"Məhsullar",adm_tab_products:"Məhsullar",adm_tab_inbox:"Qəbzlər (daxil olan)",adm_tab_users:"Müştərilər",adm_add_product:"Məhsul əlavə et",
+  admin_login_title:"Satıcı paneli",admin_login_sub:"Yalnız admin girişi",
+  foot_desc:"Qadın üst geyimləri moda evi. Palto, gödəkçə, pufflər — 2016-dan bəri.",foot_shop:"Mağaza",foot_info:"Məlumat",foot_delivery:"Çatdırılma və qaytarma",
+  foot_privacy:"Məxfilik siyasəti",foot_terms:"İstifadə şərtləri",foot_contact:"Əlaqə",foot_rights:"Bütün hüquqlar qorunur.",foot_demo:"Demo sayt — ödənişlər simulyasiyadır",
+  toast_added:"Məhsul səbətə əlavə olundu",toast_login:"Uğurla daxil oldunuz",toast_reg:"Hesab yaradıldı",toast_logout:"Hesabdan çıxdınız",toast_order:"Sifariş uğurla tamamlandı",
+  toast_cardsaved:"Kart yadda saxlanıldı",toast_prod_saved:"Məhsul yadda saxlanıldı",toast_prod_deleted:"Məhsul silindi",err_fill:"Bütün xanaları doldurun",err_login:"Yanlış email və ya şifrə",
+  err_exists:"Bu email ilə istifadəçi artıq var",err_admin:"Admin məlumatları yanlışdır",err_card:"Kart məlumatlarını yoxlayın",
+  edit:"Redaktə et",delete:"Sil",receipt_title:"Sifariş qəbul edildi!",receipt_sub:"Qəbz surəti emailinizə və admin ünvanına göndərildi",order_num:"Sifariş nömrəsi",
+  order_date:"Tarix",order_total:"Cəm",order_pay:"Ödəniş üsulu",download_receipt:"Qəbzi yüklə",print_receipt:"Çap et",back_home:"Əsas səhifə",status_paid:"Ödənilib"},
+
+  zh:{top_ship:"满200美元免运费",top_admin:"商家后台",nav_home:"首页",nav_catalog:"商品目录",nav_about:"品牌故事",nav_contact:"联系我们",
+  hero_eyebrow:"秋冬系列",hero_title:"为<i>无畏</i>女性<br>打造的外套",hero_sub:"手工剪裁大衣、夹克、羽绒服与皮衣。限量发售，全球配送。",
+  hero_cta:"浏览系列",hero_cta2:"了解品牌",scroll_cue:"下滑",new_eyebrow:"编辑精选",new_title:"本季新品",
+  about_eyebrow:"始于2016年",about_title:"每一针都是匠心",about_text:"Z'EIR 是一家独立时装屋，为敢于与众不同的女性打造外套。我们采用意大利羊毛、冰岛羽绒和手工皮革。",
+  about_stat1:"年经验",about_stat2:"满意客户",about_stat3:"配送国家",cat_eyebrow:"完整系列",search_placeholder:"搜索商品...",
+  cat_all:"全部",cat_coat:"大衣",cat_leather:"皮衣",cat_puffer:"羽绒服",cat_bomber:"飞行员夹克",cat_trench:"风衣",cat_denim:"牛仔外套",
+  add_to_cart:"加入购物车",view_details:"查看详情",size_label:"尺码",color_label:"颜色",qty_label:"数量",in_stock:"有货",out_of_stock:"缺货",
+  cart_title:"购物车",cart_empty:"购物车是空的",cart_empty_sub:"从商品目录中添加商品",subtotal:"小计",shipping:"运费",total:"总计",
+  checkout_btn:"结算",continue_shopping:"继续购物",
+  login_title:"登录",login_sub:"欢迎回来",login_btn:"登录",no_account:"还没有账户？",register_link:"注册",
+  register_title:"注册",register_sub:"创建您的 Z'EIR 账户",register_btn:"创建账户",have_account:"已有账户？",login_link:"登录",
+  f_password:"密码",f_name:"姓名",f_phone:"电话",f_address:"地址",f_city:"城市",f_zip:"邮编",f_cardnum:"卡号",f_cardexp:"有效期",
+  f_cardcvv:"安全码",f_cardholder:"持卡人姓名",f_savecard:"保存卡片到账户",f_pname:"名称",f_pprice:"价格（美元）",f_pcat:"分类",f_pstock:"库存",
+  f_picon:"表情图标",f_pdesc:"描述",save:"保存",cancel:"取消",
+  co_step1:"1. 配送",co_step2:"2. 付款",co_step3:"3. 收据",co_shipping_title:"配送信息",co_continue:"继续付款",co_payment_title:"付款",
+  pm_new:"新卡",pm_saved:"已保存的卡",co_pay:"支付订单",
+  acc_eyebrow:"我的账户",tab_orders:"我的订单",tab_cards:"我的卡片",tab_settings:"设置",logout:"退出登录",no_orders:"您还没有订单",
+  no_cards:"没有保存的卡片",add_card:"添加卡片",
+  adm_eyebrow:"商家后台",adm_title:"Z'EIR 管理",adm_stat_orders:"订单总数",adm_stat_revenue:"总收入",adm_stat_users:"客户数",
+  adm_stat_products:"商品数",adm_tab_products:"商品",adm_tab_inbox:"收据（收件箱）",adm_tab_users:"客户",adm_add_product:"添加商品",
+  admin_login_title:"商家后台",admin_login_sub:"仅限管理员访问",
+  foot_desc:"女性外套时装屋。大衣、夹克、羽绒服 — 始于2016年。",foot_shop:"商店",foot_info:"信息",foot_delivery:"配送与退货",
+  foot_privacy:"隐私政策",foot_terms:"使用条款",foot_contact:"联系方式",foot_rights:"版权所有。",foot_demo:"演示网站 — 支付为模拟",
+  toast_added:"商品已加入购物车",toast_login:"登录成功",toast_reg:"账户已创建",toast_logout:"已退出登录",toast_order:"订单已成功提交",
+  toast_cardsaved:"卡片已保存",toast_prod_saved:"商品已保存",toast_prod_deleted:"商品已删除",err_fill:"请填写所有字段",err_login:"邮箱或密码错误",
+  err_exists:"该邮箱用户已存在",err_admin:"管理员信息错误",err_card:"请检查卡片信息",
+  edit:"编辑",delete:"删除",receipt_title:"订单已提交！",receipt_sub:"收据副本已发送到您的邮箱和管理员",order_num:"订单号",
+  order_date:"日期",order_total:"总额",order_pay:"支付方式",download_receipt:"下载收据",print_receipt:"打印",back_home:"返回首页",status_paid:"已付款"}
+};
+
+const CURRENCIES = {
+  USD:{symbol:'$',rate:1,suffix:false},
+  EUR:{symbol:'€',rate:0.92,suffix:false},
+  RUB:{symbol:'₽',rate:90,suffix:true},
+  AZN:{symbol:'₼',rate:1.70,suffix:true},
+  CNY:{symbol:'¥',rate:7.20,suffix:false}
+};
+
+/* ---------------- Product data ---------------- */
+const DEFAULT_PRODUCTS = [
+  {id:'p1',name:'Пальто «Milan»',cat:'coat',price:189,image:'',stock:14,tag:'NEW',rating:5,
+   desc:'Двубортное шерстяное пальто прямого кроя из итальянской шерсти. Подкладка из вискозы, скрытая внутренняя кулиска на поясе.',
+   sizes:['XS','S','M','L','XL'],colors:['Чёрный','Бежевый','Графит']},
+  {id:'p2',name:'Косуха «Rebel»',cat:'leather',price:249,image:'',stock:8,tag:'HIT',rating:5,
+   desc:'Байкерская куртка из натуральной кожи с асимметричной молнией и стёганными плечевыми вставками.',
+   sizes:['XS','S','M','L'],colors:['Чёрный','Тёмно-коричневый']},
+  {id:'p3',name:'Пуховик «Arctic»',cat:'puffer',price:159,image:'',stock:20,tag:'NEW',rating:4,
+   desc:'Стёганый пуховик с наполнителем 90/10, съёмным капюшоном на меху и водоотталкивающей мембраной.',
+   sizes:['S','M','L','XL'],colors:['Чёрный','Хаки','Пудра']},
+  {id:'p4',name:'Бомбер «Luna»',cat:'bomber',price:99,image:'',stock:16,tag:'',rating:4,
+   desc:'Лёгкий бомбер из технического сатина с эластичными манжетами и внутренним карманом на молнии.',
+   sizes:['XS','S','M','L'],colors:['Оливковый','Чёрный','Молочный']},
+  {id:'p5',name:'Плащ «Vogue»',cat:'trench',price:139,image:'',stock:11,tag:'',rating:5,
+   desc:'Классический тренч из хлопкового габардина с поясом и погонами, водостойкая пропитка.',
+   sizes:['XS','S','M','L','XL'],colors:['Бежевый','Чёрный']},
+  {id:'p6',name:'Куртка «Denim Muse»',cat:'denim',price:79,image:'',stock:22,tag:'SALE',rating:4,
+   desc:'Джинсовая куртка оверсайз с состаренной обработкой и оригинальными пуговицами.',
+   sizes:['XS','S','M','L'],colors:['Голубой','Чёрный']},
+  {id:'p7',name:'Пальто «Aurora»',cat:'coat',price:329,image:'',stock:6,tag:'LUXE',rating:5,
+   desc:'Кашемировое пальто оверсайз ручной работы, лимитированная серия, нумерованные экземпляры.',
+   sizes:['S','M','L'],colors:['Кремовый','Серый меланж']},
+  {id:'p8',name:'Куртка «Storm»',cat:'puffer',price:179,image:'',stock:13,tag:'',rating:4,
+   desc:'Утеплённая куртка-парка с флисовой подкладкой и регулируемым капюшоном.',
+   sizes:['S','M','L','XL'],colors:['Чёрный','Тёмно-синий']},
+  {id:'p9',name:'Косуха «Nightfall»',cat:'leather',price:219,image:'',stock:9,tag:'',rating:5,
+   desc:'Приталенная байкерская куртка из мягкой кожи наппа с серебристой фурнитурой.',
+   sizes:['XS','S','M','L'],colors:['Чёрный']}
+];
+
+/* ---------------- State / persistence ---------------- */
+const STORAGE_KEY = 'zeir_store_v1';
+const ADMIN_ACCOUNT = {email:'admin@zeir.store', password:'Admin#2026', name:'Администратор'};
+
+let state = loadState();
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){ console.warn('storage unavailable, using in-memory session', e); }
+  return {
+    products: JSON.parse(JSON.stringify(DEFAULT_PRODUCTS)),
+    users: [],
+    orders: [],
+    cart: [],
+    lang: 'ru',
+    currency: 'USD',
+    currentUserEmail: null
+  };
+}
+function saveState(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch(e){ /* memory-only fallback if storage blocked */ }
+}
+
+/* ---------------- Image upload handler ---------------- */
+let pendingImageData = null;
+
+function handleImageUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    pendingImageData = dataUrl;
+    const preview = document.getElementById('apImagePreview');
+    preview.src = dataUrl;
+    preview.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ---------------- Helpers ---------------- */
+function t(key){ return (I18N[state.lang] && I18N[state.lang][key]) || I18N.ru[key] || key; }
+function fmtPrice(usd){
+  const c = CURRENCIES[state.currency];
+  const val = (usd * c.rate).toFixed(c.symbol==='¥'||c.symbol==='₽'?0:2);
+  return c.suffix ? `${val} ${c.symbol}` : `${c.symbol}${val}`;
+}
+function toast(msg){
+  const w = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className='toast'; el.textContent = msg;
+  w.appendChild(el);
+  setTimeout(()=>el.remove(), 3000);
+}
+function uid(prefix){ return prefix + Math.random().toString(36).slice(2,9).toUpperCase(); }
+function getUser(email){ return state.users.find(u=>u.email.toLowerCase()===String(email).toLowerCase()); }
+function currentUser(){ return state.currentUserEmail ? getUser(state.currentUserEmail) : null; }
+
+/* ---------------- i18n rendering ---------------- */
+function applyI18n(){
+  document.documentElement.lang = state.lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.getAttribute('data-i18n')); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.getAttribute('data-i18n-html')); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.getAttribute('data-i18n-ph')); });
+  document.getElementById('apCat').innerHTML = ['coat','leather','puffer','bomber','trench','denim']
+    .map(c=>`<option value="${c}">${t('cat_'+c)}</option>`).join('');
+}
+function buildLangCurrencySelectors(){
+  const ls = document.getElementById('langSelect');
+  ls.innerHTML = Object.keys(LANGS).map(k=>`<option value="${k}" ${k===state.lang?'selected':''}>${LANGS[k].flag} ${LANGS[k].label}</option>`).join('');
+  const cs = document.getElementById('curSelect');
+  cs.innerHTML = Object.keys(CURRENCIES).map(k=>`<option value="${k}" ${k===state.currency?'selected':''}>${k} ${CURRENCIES[k].symbol}</option>`).join('');
+}
+function setLang(l){ state.lang = l; saveState(); applyI18n(); renderAll(); }
+function setCurrency(c){ state.currency = c; saveState(); renderAll(); }
+
+/* ---------------- View switching ---------------- */
+function showView(name){
+  ['home','catalog','checkout','account','admin'].forEach(v=>{
+    document.getElementById('view-'+v).classList.toggle('hide', v!==name);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='catalog') renderCatalog();
+  if(name==='account') renderAccount();
+  if(name==='admin') renderAdmin();
+}
+
+/* ---------------- Product cards / grid ---------------- */
+const CATS = ['coat','leather','puffer','bomber','trench','denim'];
+let homeFilter='all', catalogFilter='all';
+
+function productCardHTML(p){
+  const outOfStock = p.stock<=0;
+  const imageHtml = p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span>${p.icon || '🧥'}</span>`;
+  return `
+  <div class="card reveal on">
+    <div class="card-media" onclick="openProduct('${p.id}')">
+      ${p.tag?`<span class="tag">${p.tag}</span>`:''}
+      ${imageHtml}
+      <div class="qv"><button class="btn btn-gold btn-block btn-sm" onclick="event.stopPropagation();openProduct('${p.id}')">${t('view_details')}</button></div>
+    </div>
+    <div class="card-body">
+      <div class="card-cat">${t('cat_'+p.cat)}</div>
+      <div class="card-name">${p.name}</div>
+      <div class="stars">${'★'.repeat(p.rating)}${'☆'.repeat(5-p.rating)}</div>
+      <div class="card-price" style="margin-top:10px">
+        <span class="price">${fmtPrice(p.price)}</span>
+        <span style="font-size:11px;color:${outOfStock?'var(--danger)':'var(--ok)'}">${outOfStock?t('out_of_stock'):t('in_stock')}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function buildFilterChips(containerId, activeVal, onClick){
+  const el = document.getElementById(containerId);
+  const cats = ['all', ...CATS];
+  el.innerHTML = cats.map(c=>`<span class="chip ${c===activeVal?'active':''}" onclick="${onClick}('${c}', this)">${c==='all'?t('cat_all'):t('cat_'+c)}</span>`).join('');
+}
+function setHomeFilter(c, el){ homeFilter=c; buildFilterChips('homeFilters', c, 'setHomeFilter'); renderHomeGrid(); }
+function setCatalogFilter(c, el){ catalogFilter=c; buildFilterChips('catalogFilters', c, 'setCatalogFilter'); renderCatalog(); }
+
+function renderHomeGrid(){
+  buildFilterChips('homeFilters', homeFilter, 'setHomeFilter');
+  const list = state.products.filter(p=> homeFilter==='all'||p.cat===homeFilter).slice(0,6);
+  document.getElementById('homeGrid').innerHTML = list.map(productCardHTML).join('') || `<p style="color:var(--muted)">—</p>`;
+}
+function renderCatalog(){
+  buildFilterChips('catalogFilters', catalogFilter, 'setCatalogFilter');
+  const q = (document.getElementById('searchInput')?.value||'').toLowerCase();
+  const list = state.products.filter(p=>
+    (catalogFilter==='all'||p.cat===catalogFilter) && p.name.toLowerCase().includes(q)
+  );
+  document.getElementById('catalogGrid').innerHTML = list.map(productCardHTML).join('') ||
+    `<p style="color:var(--muted);grid-column:1/-1;text-align:center;padding:40px 0">—</p>`;
+}
+
+/* ---------------- Product modal ---------------- */
+let activeProduct=null, selSize=null, selColor=null, selQty=1;
+function openProduct(id){
+  const p = state.products.find(x=>x.id===id);
+  if(!p) return;
+  activeProduct=p; selSize=p.sizes[0]; selColor=p.colors[0]; selQty=1;
+  renderProductModal();
+  document.getElementById('productOverlay').classList.add('open');
+}
+function closeProduct(){ document.getElementById('productOverlay').classList.remove('open'); }
+function renderProductModal(){
+  const p = activeProduct;
+  const out = p.stock<=0;
+  const imageHtml = p.image ? `<img src="${p.image}" alt="${p.name}">` : `<span>${p.icon || '🧥'}</span>`;
+  document.getElementById('productModalContent').innerHTML = `
+    <div class="pd-media">${imageHtml}</div>
+    <div class="pd-info">
+      <div class="pd-cat">${t('cat_'+p.cat)}</div>
+      <div class="pd-name">${p.name}</div>
+      <div class="pd-price">${fmtPrice(p.price)}</div>
+      <div class="pd-desc">${p.desc}</div>
+      <div class="opt-label">${t('size_label')}</div>
+      <div class="opt-row">${p.sizes.map(s=>`<span class="opt ${s===selSize?'selected':''}" onclick="selSize='${s}';renderProductModal()">${s}</span>`).join('')}</div>
+      <div class="opt-label">${t('color_label')}</div>
+      <div class="opt-row">${p.colors.map(c=>`<span class="opt ${c===selColor?'selected':''}" onclick="selColor='${c}';renderProductModal()">${c}</span>`).join('')}</div>
+      <div class="opt-label">${t('qty_label')}</div>
+      <div class="qty-row">
+        <div class="qty-box">
+          <button onclick="selQty=Math.max(1,selQty-1);renderProductModal()">−</button>
+          <span>${selQty}</span>
+          <button onclick="selQty=Math.min(${p.stock||1},selQty+1);renderProductModal()">+</button>
+        </div>
+      </div>
+      <button class="btn btn-gold btn-block" ${out?'disabled style="opacity:.4;cursor:not-allowed"':''} onclick="addToCart('${p.id}',selSize,selColor,selQty)">${t('add_to_cart')}</button>
+      <div class="stock-note ${out?'out':''}">${out?t('out_of_stock'):t('in_stock')+' · '+p.stock}</div>
+    </div>`;
+}
+
+/* ---------------- Cart ---------------- */
+function addToCart(pid, size, color, qty){
+  const existing = state.cart.find(c=>c.pid===pid && c.size===size && c.color===color);
+  if(existing){ existing.qty += qty; } else { state.cart.push({pid,size,color,qty}); }
+  saveState(); updateCartBadge(); toast(t('toast_added')); closeProduct(); openCart();
+}
+function updateCartBadge(){
+  const n = state.cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cartBadge').textContent = n;
+}
+function openCart(){ renderCart(); document.getElementById('cartDrawer').classList.add('open'); document.getElementById('cartMask').classList.add('open'); }
+function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('cartMask').classList.remove('open'); }
+function cartLine(item){ const p = state.products.find(x=>x.id===item.pid); return p ? {p,...item} : null; }
+function renderCart(){
+  const lines = state.cart.map(cartLine).filter(Boolean);
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  if(!lines.length){
+    body.innerHTML = `<div class="empty-state"><div class="em-icon">🛍</div><div>${t('cart_empty')}</div><div style="font-size:12px;margin-top:6px">${t('cart_empty_sub')}</div></div>`;
+    foot.innerHTML = `<button class="btn btn-outline btn-block" onclick="closeCart()">${t('continue_shopping')}</button>`;
+    return;
+  }
+  body.innerHTML = lines.map((l,i)=>`
+    <div class="cart-item">
+      <div class="ci-media">${l.p.image ? `<img src="${l.p.image}" alt="${l.p.name}">` : (l.p.icon || '🧥')}</div>
+      <div class="ci-info">
+        <div class="ci-name">${l.p.name}</div>
+        <div class="ci-meta">${l.size} · ${l.color}</div>
+        <div class="ci-row">
+          <div class="ci-qty">
+            <button onclick="changeCartQty(${i},-1)">−</button><span>${l.qty}</span><button onclick="changeCartQty(${i},1)">+</button>
+          </div>
+          <span class="price" style="font-size:14px">${fmtPrice(l.p.price*l.qty)}</span>
+        </div>
+        <div class="ci-remove" onclick="removeCartItem(${i})">${t('delete')}</div>
+      </div>
+    </div>`).join('');
+  const subtotal = lines.reduce((s,l)=>s+l.p.price*l.qty,0);
+  foot.innerHTML = `
+    <div class="sum-row"><span>${t('subtotal')}</span><span>${fmtPrice(subtotal)}</span></div>
+    <div class="sum-row"><span>${t('shipping')}</span><span>${subtotal>200?'—':fmtPrice(12)}</span></div>
+    <div class="sum-total"><span>${t('total')}</span><span>${fmtPrice(subtotal>200?subtotal:subtotal+12)}</span></div>
+    <button class="btn btn-gold btn-block" onclick="startCheckout()">${t('checkout_btn')}</button>`;
+}
+function changeCartQty(i,d){ state.cart[i].qty=Math.max(1,state.cart[i].qty+d); saveState(); renderCart(); updateCartBadge(); }
+function removeCartItem(i){ state.cart.splice(i,1); saveState(); renderCart(); updateCartBadge(); }
+
+/* ---------------- Checkout ---------------- */
+function startCheckout(){
+  if(!currentUser()){ closeCart(); openAuth(); toast(t('err_fill')); return; }
+  if(!state.cart.length) return;
+  closeCart();
+  showView('checkout');
+  document.getElementById('co-shipping').classList.remove('hide');
+  document.getElementById('co-payment').classList.add('hide');
+  document.getElementById('co-receipt').classList.add('hide');
+  ['step1','step2','step3'].forEach((s,idx)=>document.getElementById(s).className='co-step'+(idx===0?' active':''));
+  const u = currentUser();
+  document.getElementById('shipName').value = u.name||'';
+}
+function goToPayment(){
+  const req = ['shipName','shipPhone','shipAddress','shipCity','shipZip'];
+  for(const id of req){ if(!document.getElementById(id).value.trim()){ toast(t('err_fill')); return; } }
+  document.getElementById('co-shipping').classList.add('hide');
+  document.getElementById('co-payment').classList.remove('hide');
+  document.getElementById('step1').className='co-step done';
+  document.getElementById('step2').className='co-step active';
+  renderSavedCardsBlock();
+}
+let pmMode='new';
+function selectPM(mode, el){ pmMode=mode; document.querySelectorAll('.pm-opt').forEach(o=>o.classList.remove('selected')); el.classList.add('selected');
+  document.getElementById('pm-new-block').classList.toggle('hide', mode!=='new');
+  document.getElementById('pm-saved-block').classList.toggle('hide', mode!=='saved');
+}
+function renderSavedCardsBlock(){
+  const u = currentUser(); const cards = u.cards||[];
+  const block = document.getElementById('pm-saved-block');
+  if(!cards.length){ block.innerHTML = `<p style="color:var(--muted);font-size:13px">${t('no_cards')}</p>`; return; }
+  block.innerHTML = cards.map((c,i)=>`
+    <label style="display:flex;align-items:center;gap:12px;border:1px solid var(--line);padding:14px;margin-bottom:10px;border-radius:2px;cursor:pointer">
+      <input type="radio" name="savedcard" value="${i}" ${i===0?'checked':''} style="width:auto">
+      <span class="card-visual">•••• •••• •••• ${c.last4}</span><span style="color:var(--muted);font-size:12px">${c.exp}</span>
+    </label>`).join('');
+}
+function formatCardInput(el){ let v = el.value.replace(/\D/g,'').slice(0,16); el.value = v.replace(/(.{4})/g,'$1 ').trim(); }
+function formatExpInput(el){ let v = el.value.replace(/\D/g,'').slice(0,4); if(v.length>=3) v=v.slice(0,2)+'/'+v.slice(2); el.value=v; }
+function luhnCheck(num){ let sum=0,alt=false; for(let i=num.length-1;i>=0;i--){ let n=parseInt(num[i],10); if(alt){ n*=2; if(n>9)n-=9;} sum+=n; alt=!alt;} return sum%10===0; }
+
+function processPayment(){
+  const errBox = document.getElementById('payError');
+  errBox.classList.add('hide');
+  let cardLast4='0000', cardExpVal='';
+  if(pmMode==='new'){
+    const num = document.getElementById('cardNum').value.replace(/\s/g,'');
+    const exp = document.getElementById('cardExp').value;
+    const cvv = document.getElementById('cardCvv').value;
+    const holder = document.getElementById('cardHolder').value.trim();
+    if(num.length<16 || !/^\d{2}\/\d{2}$/.test(exp) || cvv.length<3 || !holder || !luhnCheck(num)){
+      errBox.textContent = t('err_card'); errBox.classList.remove('hide'); return;
+    }
+    cardLast4 = num.slice(-4); cardExpVal = exp;
+    if(document.getElementById('saveCardChk').checked){
+      const u = currentUser();
+      u.cards = u.cards || [];
+      u.cards.push({last4:cardLast4, exp:cardExpVal, holder});
+      saveState(); toast(t('toast_cardsaved'));
+    }
+  } else {
+    const u = currentUser();
+    const idx = document.querySelector('input[name=savedcard]:checked');
+    if(!idx || !u.cards || !u.cards[idx.value]){ errBox.textContent=t('err_card'); errBox.classList.remove('hide'); return; }
+    cardLast4 = u.cards[idx.value].last4; cardExpVal = u.cards[idx.value].exp;
+  }
+  const btn = document.getElementById('payBtn');
+  btn.textContent = '···'; btn.disabled = true;
+  setTimeout(()=>{ finalizeOrder(cardLast4); btn.disabled=false; btn.textContent=t('co_pay'); }, 1100);
+}
+
+function finalizeOrder(cardLast4){
+  const lines = state.cart.map(cartLine).filter(Boolean);
+  const subtotal = lines.reduce((s,l)=>s+l.p.price*l.qty,0);
+  const shipping = subtotal>200?0:12;
+  const total = subtotal+shipping;
+  const order = {
+    id: uid('ZE-'),
+    date: new Date().toISOString(),
+    userEmail: currentUser().email,
+    items: lines.map(l=>({name:l.p.name,size:l.size,color:l.color,qty:l.qty,price:l.p.price})),
+    subtotal, shipping, total, currency: state.currency,
+    cardLast4, status:'paid',
+    shipping_info:{
+      name: document.getElementById('shipName').value,
+      phone: document.getElementById('shipPhone').value,
+      address: document.getElementById('shipAddress').value,
+      city: document.getElementById('shipCity').value,
+      zip: document.getElementById('shipZip').value
+    }
+  };
+  lines.forEach(l=>{ const p = state.products.find(x=>x.id===l.p.id); if(p) p.stock = Math.max(0, p.stock-l.qty); });
+  state.orders.push(order);
+  state.cart = [];
+  saveState(); updateCartBadge();
+  document.getElementById('co-payment').classList.add('hide');
+  document.getElementById('co-receipt').classList.remove('hide');
+  document.getElementById('step2').className='co-step done';
+  document.getElementById('step3').className='co-step active';
+  renderReceipt(order);
+  toast(t('toast_order'));
+}
+function renderReceipt(order){
+  document.getElementById('co-receipt').innerHTML = `
+    <div class="receipt-card">
+      <div class="receipt-check">✓</div>
+      <h2 class="section-title" style="font-size:24px">${t('receipt_title')}</h2>
+      <p style="color:var(--muted);font-size:13px;margin-top:10px">${t('receipt_sub')}</p>
+      <div class="receipt-detail">
+        <div class="rd-row"><span>${t('order_num')}</span><span>${order.id}</span></div>
+        <div class="rd-row"><span>${t('order_date')}</span><span>${new Date(order.date).toLocaleString()}</span></div>
+        <div class="rd-row"><span>${t('order_pay')}</span><span>•••• ${order.cardLast4}</span></div>
+        ${order.items.map(i=>`<div class="rd-row"><span>${i.name} (${i.size}, ${i.color}) ×${i.qty}</span><span>${fmtPrice(i.price*i.qty)}</span></div>`).join('')}
+        <div class="rd-row" style="font-weight:600;color:var(--text)"><span>${t('order_total')}</span><span>${fmtPrice(order.total)}</span></div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-outline btn-block btn-sm" onclick="downloadReceipt('${order.id}')">${t('download_receipt')}</button>
+        <button class="btn btn-outline btn-block btn-sm" onclick="window.print()">${t('print_receipt')}</button>
+      </div>
+      <button class="btn btn-gold btn-block" style="margin-top:12px" onclick="showView('home')">${t('back_home')}</button>
+    </div>`;
+}
+function downloadReceipt(orderId){
+  const order = state.orders.find(o=>o.id===orderId);
+  if(!order) return;
+  const lines = [
+    'Z\'EIR — ЧЕК / RECEIPT', '='.repeat(36),
+    `${t('order_num')}: ${order.id}`, `${t('order_date')}: ${new Date(order.date).toLocaleString()}`,
+    `${t('order_pay')}: •••• ${order.cardLast4}`, '-'.repeat(36),
+    ...order.items.map(i=>`${i.name} (${i.size}, ${i.color}) x${i.qty} — ${fmtPrice(i.price*i.qty)}`),
+    '-'.repeat(36), `${t('subtotal')}: ${fmtPrice(order.subtotal)}`, `${t('shipping')}: ${fmtPrice(order.shipping)}`,
+    `${t('order_total')}: ${fmtPrice(order.total)}`, '', t('foot_demo')
+  ].join('\n');
+  const blob = new Blob([lines], {type:'text/plain'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = order.id+'.txt'; a.click();
+}
+
+/* ---------------- Auth ---------------- */
+function openAuth(){ showLogin(); document.getElementById('authOverlay').classList.add('open'); }
+function closeAuth(){ document.getElementById('authOverlay').classList.remove('open'); }
+function showLogin(){ document.getElementById('authLoginBox').classList.remove('hide'); document.getElementById('authRegisterBox').classList.add('hide'); }
+function showRegister(){ document.getElementById('authLoginBox').classList.add('hide'); document.getElementById('authRegisterBox').classList.remove('hide'); }
+
+function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const errEl = document.getElementById('loginError');
+  const u = getUser(email);
+  if(!u || u.password!==pass){ errEl.textContent=t('err_login'); errEl.classList.remove('hide'); return; }
+  errEl.classList.add('hide');
+  state.currentUserEmail = u.email; saveState();
+  closeAuth(); toast(t('toast_login')); updateAuthUI();
+}
+function doRegister(){
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const errEl = document.getElementById('regError');
+  if(!name||!email||!pass){ errEl.textContent=t('err_fill'); errEl.classList.remove('hide'); return; }
+  if(getUser(email)){ errEl.textContent=t('err_exists'); errEl.classList.remove('hide'); return; }
+  errEl.classList.add('hide');
+  state.users.push({name,email,password:pass,cards:[],joined:new Date().toISOString()});
+  state.currentUserEmail = email; saveState();
+  closeAuth(); toast(t('toast_reg')); updateAuthUI();
+}
+function logout(){ state.currentUserEmail=null; saveState(); updateAuthUI(); showView('home'); toast(t('toast_logout')); }
+function openAccount(){
+  if(!currentUser()){ openAuth(); return; }
+  showView('account');
+}
+function updateAuthUI(){ /* icon stays generic; account view guards login */ }
+
+/* ---------------- Admin auth ---------------- */
+function openAdminLogin(){ document.getElementById('adminLoginOverlay').classList.add('open'); }
+function closeAdminLogin(){ document.getElementById('adminLoginOverlay').classList.remove('open'); }
+function doAdminLogin(){
+  const email = document.getElementById('adminEmail').value.trim();
+  const pass = document.getElementById('adminPass').value;
+  const errEl = document.getElementById('adminLoginError');
+  if(email.toLowerCase()!==ADMIN_ACCOUNT.email.toLowerCase() || pass!==ADMIN_ACCOUNT.password){
+    errEl.textContent=t('err_admin'); errEl.classList.remove('hide'); return;
+  }
+  errEl.classList.add('hide');
+  state.currentUserEmail = 'ADMIN'; saveState();
+  closeAdminLogin(); showView('admin');
+}
+
+/* ---------------- Account dashboard ---------------- */
+function switchAccTab(tab, el){
+  document.querySelectorAll('#view-account .dash-tab').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  ['orders','cards','settings'].forEach(x=>document.getElementById('acc-'+x).classList.toggle('hide', x!==tab));
+}
+function renderAccount(){
+  const u = currentUser();
+  if(!u){ showView('home'); openAuth(); return; }
+  document.getElementById('accGreeting').textContent = (state.lang==='ru'?'Здравствуйте, ':state.lang==='en'?'Hello, ':state.lang==='zh'?'您好，':'')+u.name;
+  const myOrders = state.orders.filter(o=>o.userEmail===u.email).slice().reverse();
+  document.getElementById('acc-orders').innerHTML = myOrders.length ? myOrders.map(o=>`
+    <div class="order-row">
+      <div class="order-top"><span class="order-id">${o.id}</span><span class="status-pill">${t('status_paid')}</span></div>
+      <div class="order-items">${o.items.map(i=>`${i.name} ×${i.qty}`).join(', ')}</div>
+      <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:12px;color:var(--muted)">${new Date(o.date).toLocaleDateString()}</span>
+        <span class="price">${fmtPrice(o.total)}</span>
+      </div>
+    </div>`).join('') : `<div class="empty-state"><div class="em-icon">📦</div>${t('no_orders')}</div>`;
+
+  const cards = u.cards||[];
+  document.getElementById('acc-cards').innerHTML = (cards.length ? cards.map((c,i)=>`
+    <div class="card-row">
+      <div><div class="card-visual">•••• •••• •••• ${c.last4}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">${c.holder} · ${c.exp}</div></div>
+      <button class="icon-action" onclick="removeCard(${i})">✕</button>
+    </div>`).join('') : `<div class="empty-state"><div class="em-icon">💳</div>${t('no_cards')}</div>`)
+    + `<button class="btn btn-outline" style="margin-top:16px" onclick="openAddCard()">${t('add_card')}</button>`;
+
+  document.getElementById('acc-settings').innerHTML = `
+    <div class="settings-form">
+      <div class="field"><label data-i18n="f_name">${t('f_name')}</label><input id="setName" value="${u.name}"></div>
+      <div class="field"><label>Email</label><input value="${u.email}" disabled></div>
+      <div class="field"><label>${t('f_password')}</label><input id="setPass" type="password" placeholder="••••••••"></div>
+      <button class="btn btn-gold" onclick="saveSettings()">${t('save')}</button>
+    </div>`;
+}
+function removeCard(i){ const u=currentUser(); u.cards.splice(i,1); saveState(); renderAccount(); }
+function openAddCard(){
+  showView('checkout');
+  document.getElementById('co-shipping').classList.add('hide');
+  document.getElementById('co-payment').classList.remove('hide');
+  document.getElementById('co-receipt').classList.add('hide');
+  pmMode='new'; selectPM('new', document.querySelector('.pm-opt[data-pm=new]'));
+  document.getElementById('payBtn').setAttribute('onclick','saveCardOnly()');
+}
+function saveCardOnly(){
+  const num = document.getElementById('cardNum').value.replace(/\s/g,'');
+  const exp = document.getElementById('cardExp').value;
+  const holder = document.getElementById('cardHolder').value.trim();
+  const errBox = document.getElementById('payError');
+  if(num.length<16 || !/^\d{2}\/\d{2}$/.test(exp) || !holder || !luhnCheck(num)){ errBox.textContent=t('err_card'); errBox.classList.remove('hide'); return; }
+  const u = currentUser(); u.cards = u.cards||[]; u.cards.push({last4:num.slice(-4), exp, holder});
+  saveState(); toast(t('toast_cardsaved'));
+  document.getElementById('payBtn').setAttribute('onclick','processPayment()');
+  showView('account'); switchAccTab('cards', document.querySelector('#view-account .dash-tab[data-tab=cards]'));
+}
+function saveSettings(){
+  const u = currentUser();
+  u.name = document.getElementById('setName').value.trim()||u.name;
+  const np = document.getElementById('setPass').value;
+  if(np) u.password = np;
+  saveState(); renderAccount(); toast(t('save'));
+}
+
+/* ---------------- Admin panel ---------------- */
+function switchAdminTab(tab, el){
+  document.querySelectorAll('#view-admin .dash-tab').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+  ['products','inbox','users'].forEach(x=>document.getElementById('adm-'+x).classList.toggle('hide', x!==tab));
+}
+function renderAdmin(){
+  if(state.currentUserEmail!=='ADMIN'){ showView('home'); openAdminLogin(); return; }
+  document.getElementById('statOrders').textContent = state.orders.length;
+  document.getElementById('statRevenue').textContent = fmtPrice(state.orders.reduce((s,o)=>s+o.total,0));
+  document.getElementById('statUsers').textContent = state.users.length;
+  document.getElementById('statProducts').textContent = state.products.length;
+
+  document.getElementById('adm-products').innerHTML = `
+    <button class="btn btn-gold btn-sm" style="margin-bottom:20px" onclick="openAdminProdModal()">+ ${t('adm_add_product')}</button>
+    <table class="table"><thead><tr><th></th><th>${t('f_pname')}</th><th>${t('f_pcat')}</th><th>${t('f_pprice')}</th><th>${t('f_pstock')}</th><th></th></tr></thead>
+    <tbody>${state.products.map(p=>`
+      <tr>
+        <td><div class="mini-media">${p.image ? `<img src="${p.image}" alt="${p.name}">` : (p.icon || '🧥')}</div></td>
+        <td>${p.name}</td><td>${t('cat_'+p.cat)}</td><td>${fmtPrice(p.price)}</td><td>${p.stock}</td>
+        <td style="text-align:right;white-space:nowrap">
+          <span class="icon-action" onclick="openAdminProdModal('${p.id}')" title="${t('edit')}">✎</span>
+          <span class="icon-action" onclick="deleteProduct('${p.id}')" title="${t('delete')}">🗑</span>
+        </td>
+      </tr>`).join('')}</tbody></table>`;
+
+  const allOrders = state.orders.slice().reverse();
+  document.getElementById('adm-inbox').innerHTML = allOrders.length ? `
+    <table class="table"><thead><tr><th>${t('order_num')}</th><th>Email</th><th>${t('order_date')}</th><th>${t('order_total')}</th><th></th></tr></thead>
+    <tbody>${allOrders.map(o=>`
+      <tr>
+        <td>${o.id}</td><td>${o.userEmail}</td><td>${new Date(o.date).toLocaleString()}</td><td>${fmtPrice(o.total)}</td>
+        <td><span class="icon-action" onclick='alert(${JSON.stringify(JSON.stringify(o.items.map(i=>i.name+" x"+i.qty)))}.split(",").join(String.fromCharCode(10)))'>👁</span></td>
+      </tr>`).join('')}</tbody></table>` : `<div class="empty-state"><div class="em-icon">📭</div>—</div>`;
+
+  document.getElementById('adm-users').innerHTML = state.users.length ? `
+    <table class="table"><thead><tr><th>${t('f_name')}</th><th>Email</th><th>${t('order_date')}</th></tr></thead>
+    <tbody>${state.users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${new Date(u.joined).toLocaleDateString()}</td></tr>`).join('')}</tbody></table>`
+    : `<div class="empty-state"><div class="em-icon">👥</div>—</div>`;
+}
+let editingProductId=null;
+function openAdminProdModal(id){
+  editingProductId = id||null;
+  const p = id ? state.products.find(x=>x.id===id) : null;
+  document.getElementById('adminProdModalTitle').textContent = id ? t('edit') : t('adm_add_product');
+  document.getElementById('apName').value = p?p.name:'';
+  document.getElementById('apPrice').value = p?p.price:'';
+  document.getElementById('apCat').value = p?p.cat:'coat';
+  document.getElementById('apStock').value = p?p.stock:'';
+  document.getElementById('apDesc').value = p?p.desc:'';
+  // Restore image preview if exists
+  const preview = document.getElementById('apImagePreview');
+  if(p && p.image){
+    preview.src = p.image;
+    preview.style.display = 'block';
+    pendingImageData = p.image;
+  } else {
+    preview.style.display = 'none';
+    pendingImageData = null;
+  }
+  // Reset file input
+  document.getElementById('apImageFile').value = '';
+  document.getElementById('adminProdOverlay').classList.add('open');
+}
+function closeAdminProdModal(){ document.getElementById('adminProdOverlay').classList.remove('open'); }
+function saveAdminProduct(){
+  const name = document.getElementById('apName').value.trim();
+  const price = parseFloat(document.getElementById('apPrice').value);
+  const cat = document.getElementById('apCat').value;
+  const stock = parseInt(document.getElementById('apStock').value||'0',10);
+  const desc = document.getElementById('apDesc').value.trim();
+  if(!name || isNaN(price)){ toast(t('err_fill')); return; }
+  if(editingProductId){
+    const p = state.products.find(x=>x.id===editingProductId);
+    Object.assign(p, {name,price,cat,stock,desc});
+    if(pendingImageData) p.image = pendingImageData;
+  } else {
+    const newProduct = {
+      id:uid('p'),
+      name,price,cat,stock,
+      image: pendingImageData || '',
+      desc,
+      tag:'NEW',
+      rating:5,
+      sizes:['XS','S','M','L','XL'],
+      colors:['Чёрный','Бежевый']
+    };
+    state.products.push(newProduct);
+  }
+  saveState(); closeAdminProdModal(); renderAdmin(); toast(t('toast_prod_saved'));
+}
+function deleteProduct(id){
+  state.products = state.products.filter(p=>p.id!==id);
+  saveState(); renderAdmin(); toast(t('toast_prod_deleted'));
+}
+
+/* ---------------- Scroll reveal ---------------- */
+function initReveal(){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+/* ---------------- Init ---------------- */
+function renderAll(){
+  renderHomeGrid();
+  if(!document.getElementById('view-catalog').classList.contains('hide')) renderCatalog();
+  if(!document.getElementById('view-account').classList.contains('hide')) renderAccount();
+  if(!document.getElementById('view-admin').classList.contains('hide')) renderAdmin();
+  updateCartBadge();
+}
+window.addEventListener('DOMContentLoaded', ()=>{
+  buildLangCurrencySelectors();
+  applyI18n();
+  renderHomeGrid();
+  updateCartBadge();
+  initReveal();
+  setTimeout(()=>{ document.getElementById('loader').style.opacity='0'; setTimeout(()=>document.getElementById('loader').remove(),650); }, 700);
+});
+</script>
+</body>
+</html>
